@@ -37,13 +37,11 @@ class TextSizeAdapter(_context: Context, _numbers: Array<Int>) : BaseAdapter() {
         return textView
     }
 
-    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        return super.getDropDownView(position, convertView, parent).apply {
-            if (convertView is TextView) {
-                convertView.textSize = numbers[position].toFloat()
-            }
+    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View =
+        getView(position, convertView, parent).apply {
+            (this as TextView).textSize = numbers[position].toFloat()
         }
 
-    }
+
 
 }
